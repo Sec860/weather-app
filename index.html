@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <title>Stephanie's Weather App</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <form>
+            <input type="text" placeholder="City name" autofocus="on" id="search-box"/>
+          </form>
+        </div>
+        <div class="col-4" id="search-result">Sydney, Australia</div>
+        <div class="col-4" id="logo"><small> Date</small></div>
+        <button class="degree-code" id="celsius">℃</button>
+        <button class="degree-code" id="fahrenheit">℉</button>
+        <button class="degree-code" id="geolocation">Current Location</button>
+      </div>
+      <div class="row">
+        <div class="col-6 text-center weather-icon">
+          <img
+            src="images/sun-icon2.png"
+            class="img-responsive"
+            width="60%"
+            alt="Sunny"
+          />
+        </div>
+        <div class="col-6">
+          <span id="temperature-data">20℃</span>
+          <div class="col-6">
+            <ul>
+              <li class="weather-details"><strong id = "weather-description">Sunny</strong></li>
+              <li class="weather-details">Wind: <span id = "wind">5</span>mph</li>
+              <li class="weather-details">Humidity: <span id = "humidity">54</span>%</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-3 weekday">Tomorrow</div>
+        <div class="col-2 weekday">Tuesday</div>
+        <div class="col-2 weekday">Wednesday</div>
+        <div class="col-2 weekday">Thursday</div>
+        <div class="col-3 weekday">Friday</div>
+        <div class="col-3 weekday-icon">☀️</div>
+        <div class="col-2 weekday-icon">🌤</div>
+        <div class="col-2 weekday-icon">🌦</div>
+        <div class="col-2 weekday-icon">🌧</div>
+        <div class="col-3 weekday-icon">☀️</div>
+        <div class="col-3 weekday-temperature">21℃</div>
+        <div class="col-2 weekday-temperature">17℃</div>
+        <div class="col-2 weekday-temperature">18℃</div>
+        <div class="col-2 weekday-temperature">19℃</div>
+        <div class="col-3 weekday-temperature">20℃</div>
+      </div>
+    </div>
+  </body>
+  <script
+    src = "src/script.js"></script>
+  </script>
+</html>

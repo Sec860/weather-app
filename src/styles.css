@@ -1,0 +1,72 @@
+body {
+  margin: 30px 90px;
+}
+ul {
+  list-style: none;
+}
+.container {
+  padding: 40px;
+  border: 1px solid rgba(5, 35, 75, 0.822);
+  border-radius: 10px;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(255, 246, 236) 39.5%,
+    rgba(100, 46, 122, 0.23) 100.2%
+  );
+  max-width: 1000px;
+  margin: 10px auto;
+  min-width: 1000px;
+}
+
+#search-result {
+  font-family: "Londrina Solid", cursive;
+  color: green;
+  font-size: 40px;
+  line-height: 50px;
+  margin-top: -10px;
+  text-align: left;
+  position: relative;
+  left: -26px;
+}
+#logo {
+  color: rgba(5, 35, 75, 0.822);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  text-align: right;
+}
+.degree-code {
+  display: inline;
+  background: transparent;
+  border: none;
+  width: 20px;
+  color: salmon;
+  transition: all 200ms ease-in;
+}
+.degree-code:hover {
+  color: green;
+  text-decoration: underline;
+}
+#geolocation {
+  width: 150px;
+}
+#temperature-data {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 125px;
+  text-align: left;
+  margin: 50px 0;
+  line-height: 1;
+  color: rgba(5, 35, 75, 0.822);
+}
+.weather-details {
+  font-size: 14px;
+  margin: 0;
+  text-align: left;
+}
+.weekday,
+.weekday-icon,
+.weekday-temperature {
+  text-align: center;
+  color: rgba(5, 35, 75, 0.822);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+}
