@@ -11,7 +11,7 @@ ul {
 }
 .container {
   padding: 40px;
-  border: 1px solid rgba(5, 35, 75, 0.822);
+  border: 3px solid rgba(5, 35, 75, 0.2);
   border-radius: 10px;
   background: radial-gradient(
     circle at 10% 20%,
