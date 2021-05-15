@@ -40,9 +40,9 @@ function searchCity(event) {
 function showWeather(response) {
   temperature.innerHTML = `${Math.round(response.data.main.temp)}°F`
   citySearch.innerHTML = (response.data.name);
-  document.querySelector("#wind").innerHTML = `${Math.round(response.data.wind.speed)}`
+  document.querySelector("#wind").innerHTML = `${Math.round(response.data.wind.speed)} mph`
   document.querySelector("#humidity").innerHTML = `${Math.round(response.data.main.humidity)}`
-    document.querySelector("#weather-description").innerHTML = `${response.data.weather[0].main}`
+  document.querySelector("#weather-description").innerHTML = `${response.data.weather[0].main}`
 
 }
 
@@ -56,7 +56,9 @@ function chooseCelsius(event) {
 }
 
 function showCelsius(response) {
-temperature.innerHTML = `${Math.round(response.data.main.temp)}℃`}
+temperature.innerHTML = `${Math.round(response.data.main.temp)}℃`
+document.querySelector("#wind").innerHTML = `${Math.round(response.data.wind.speed)} km/h`
+}
 
 fahrenheit.addEventListener("click", chooseFahrenheit)
 
@@ -68,7 +70,9 @@ function chooseFahrenheit(event) {
 }
 
 function showFahrenheit(response) {
-temperature.innerHTML = `${Math.round(response.data.main.temp)}°F`}
+temperature.innerHTML = `${Math.round(response.data.main.temp)}°F`
+document.querySelector("#wind").innerHTML = `${Math.round(response.data.wind.speed)} mph`
+}
 
 let geolocation = document.querySelector("#geolocation");
 geolocation.addEventListener("click", getPosition)
@@ -82,16 +86,16 @@ function searchLocation(position) {
 let latitude = position.coords.latitude;
 let longitude = position.coords.longitude;
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`
-axios.get(apiUrl).then(showLocationWeather)}
+axios.get(apiUrl).then(showLocationWeather)
+}
 
 function showLocationWeather(response) {
   temperature.innerHTML = `${Math.round(response.data.main.temp)}°F`
   citySearch.innerHTML = `${response.data.name}`
-   document.querySelector("#wind").innerHTML = `${Math.round(response.data.wind.speed)}`
+   document.querySelector("#wind").innerHTML = `${Math.round(response.data.wind.speed)} mph`
   document.querySelector("#humidity").innerHTML = `${Math.round(response.data.main.humidity)}`
   document.querySelector("#weather-description").innerHTML = `${response.data.weather[0].main}`
 }
 
 //if latitude long > xxx then Celsius
 //change symbol
-//wind/humidity/prec
