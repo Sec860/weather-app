@@ -8,6 +8,7 @@ let citySearch = document.querySelector("#search-result");
 let userInput = document.querySelector("#search-box")
 let apiKey = `0a8d04c2a1eeee18ec7890af586e6c13`
 
+
 let form = document.querySelector("form")
 form.addEventListener("submit", searchCity);
 
@@ -28,16 +29,14 @@ function searchCity(event) {
 function formatTime(timestamp) {  
   let date = new Date(timestamp);
   let hours = date.getHours();
+    if (hours < 10) { `0${hours}`}
   let minutes = date.getMinutes();
+    if (minutes < 10) { `0${minutes}`}
   let weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   let weekday = weekdays[date.getDay()];
   let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", " December"]
   let month = months[date.getMonth()];
   let day = date.getDate();
-  
-  if (minutes < 10) { `0${minutes}`}
-  if (hours < 10) { `0${hours}`}
-
   return `${weekday}, ${month} ${day} - ${hours}:${minutes}` 
 }
 function showWeather(response) {
@@ -48,6 +47,7 @@ function showWeather(response) {
   document.querySelector("#weather-description").innerHTML = `${response.data.weather[0].main}`
   date = document.querySelector("#logo")
   date.innerHTML = formatTime(response.data.dt * 1000)
+  document.querySelector("#weather-icon").setAttribute("src", `http://openweathermap.org/img/wn/${(response.data.weather[0].icon)}@2x.png`)
 }
 
 celsius.addEventListener("click", chooseCelsius)
