@@ -99,6 +99,9 @@ function showLocationWeather(response) {
    document.querySelector("#wind").innerHTML = `${Math.round(response.data.wind.speed)} mph`
   document.querySelector("#humidity").innerHTML = `${Math.round(response.data.main.humidity)}`
   document.querySelector("#weather-description").innerHTML = `${response.data.weather[0].main}`
+  date = document.querySelector("#logo")
+  date.innerHTML = formatTime(response.data.dt * 1000)
+  document.querySelector("#weather-icon").setAttribute("src", `http://openweathermap.org/img/wn/${(response.data.weather[0].icon)}@2x.png`)
 }
 
 //if latitude long > xxx then Celsius
