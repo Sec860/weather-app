@@ -17,7 +17,6 @@ showStartUp("Florence")
 function showStartUp(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
   axios.get(apiUrl).then(showWeather)
-  
 }
 
 function searchCity(event) {
@@ -47,8 +46,29 @@ function showWeather(response) {
   document.querySelector("#weather-description").innerHTML = `${response.data.weather[0].main}`
   date = document.querySelector("#logo")
   date.innerHTML = formatTime(response.data.dt * 1000)
-  document.querySelector("#weather-icon").setAttribute("src", `http://openweathermap.org/img/wn/${(response.data.weather[0].icon)}@2x.png`)
+  document.querySelector("#weather-icon").setAttribute("src", `https://openweathermap.org/img/wn/${(response.data.weather[0].icon)}@2x.png`)
+  showForecast()
 }
+
+function showForecast() {
+  let forecastElement= document.querySelector("#forecast")
+
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", " Friday", "Saturday"]
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function(day) {forecastHTML = forecastHTML + `
+        <div class="col-2 weekday">${day} </br>
+        <img src=""
+        alt = "Sunny"
+        width = ""
+        />
+        <div class="weekday-temperature">21℃
+        </div>
+        </div>
+       `
+})
+
+forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML}
 
 celsius.addEventListener("click", chooseCelsius)
 
@@ -101,8 +121,6 @@ function showLocationWeather(response) {
   document.querySelector("#weather-description").innerHTML = `${response.data.weather[0].main}`
   date = document.querySelector("#logo")
   date.innerHTML = formatTime(response.data.dt * 1000)
-  document.querySelector("#weather-icon").setAttribute("src", `http://openweathermap.org/img/wn/${(response.data.weather[0].icon)}@2x.png`)
+  document.querySelector("#weather-icon").setAttribute("src", `https://openweathermap.org/img/wn/${(response.data.weather[0].icon)}@2x.png`)
 }
 
-//if latitude long > xxx then Celsius
-//change symbol
