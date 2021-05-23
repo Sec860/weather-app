@@ -80,6 +80,15 @@ img {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 17px;
 }
+.weekday-temperature {
+  font-size: 20px;
+}
+.weekday-temperature-max {
+  opacity: 0.9;
+}
+.weekday-temperature-min {
+  opacity: 0.6;
+}
 p {
   text-align: center;
 }

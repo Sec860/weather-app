@@ -38,6 +38,7 @@ function formatTime(timestamp) {
   let day = date.getDate();
   return `${weekday}, ${month} ${day} - ${hours}:${minutes}` 
 }
+
 function showWeather(response) {
   temperature.innerHTML = `${Math.round(response.data.main.temp)}°F`
   citySearch.innerHTML = (response.data.name);
@@ -47,12 +48,17 @@ function showWeather(response) {
   date = document.querySelector("#logo")
   date.innerHTML = formatTime(response.data.dt * 1000)
   document.querySelector("#weather-icon").setAttribute("src", `https://openweathermap.org/img/wn/${(response.data.weather[0].icon)}@2x.png`)
-  showForecast()
+  showForecast(response.data.coord)
 }
 
-function showForecast() {
-  let forecastElement= document.querySelector("#forecast")
+function getForecast(coordinate) {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`
+  axios.get(apiUrl).then(showForecast)
+  
+}
 
+function showForecast(response) {
+  let forecastElement= document.querySelector("#forecast")
   let days = ["Monday", "Tuesday", "Wednesday", "Thursday", " Friday", "Saturday"]
   let forecastHTML = `<div class="row">`;
   days.forEach(function(day) {forecastHTML = forecastHTML + `
@@ -61,14 +67,17 @@ function showForecast() {
         alt = "Sunny"
         width = ""
         />
-        <div class="weekday-temperature">21℃
+        <div class = "weekday-temperature">
+        <span class = "weekday-temperature-max">21°F </span>
+        <span class = "weekday-temperature-min"> 15°F</span>
         </div>
         </div>
        `
 })
 
 forecastHTML = forecastHTML + `</div>`;
-forecastElement.innerHTML = forecastHTML}
+forecastElement.innerHTML = forecastHTML
+}
 
 celsius.addEventListener("click", chooseCelsius)
 
@@ -116,11 +125,13 @@ axios.get(apiUrl).then(showLocationWeather)
 function showLocationWeather(response) {
   temperature.innerHTML = `${Math.round(response.data.main.temp)}°F`
   citySearch.innerHTML = `${response.data.name}`
-   document.querySelector("#wind").innerHTML = `${Math.round(response.data.wind.speed)} mph`
+  document.querySelector("#wind").innerHTML = `${Math.round(response.data.wind.speed)} mph`
   document.querySelector("#humidity").innerHTML = `${Math.round(response.data.main.humidity)}`
   document.querySelector("#weather-description").innerHTML = `${response.data.weather[0].main}`
   date = document.querySelector("#logo")
   date.innerHTML = formatTime(response.data.dt * 1000)
   document.querySelector("#weather-icon").setAttribute("src", `https://openweathermap.org/img/wn/${(response.data.weather[0].icon)}@2x.png`)
+  document.querySelector('#search-box').value = response.data.name;
+
 }
 
