@@ -1,22 +1,27 @@
 body {
   margin: 30px 90px;
+  background-image: url("pexels-pixabay-268941.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background: transparent/3;
 }
 
 .row {
   padding-top: 15px;
-  padding-bottom: 15px;
+  padding-bottom: 5px;
 }
 ul {
   list-style: none;
 }
 .container {
-  padding: 40px;
+  padding: 40px 40px 0 40px;
   border: 3px solid rgba(5, 35, 75, 0.2);
   border-radius: 10px;
   background: radial-gradient(
     circle at 10% 20%,
-    rgb(255, 246, 236) 39.5%,
-    rgba(100, 46, 122, 0.23) 100.2%
+    rgb(241, 233, 224) 39.5%,
+    rgba(100, 46, 122, 0.23) 150.2%
   );
   max-width: 1000px;
   margin: 10px auto;
@@ -89,6 +94,17 @@ img {
 .weekday-temperature-min {
   opacity: 0.6;
 }
-p {
-  text-align: center;
+
+.credit {
+padding-top: 40px;}
+
+#git-link: {
+  position: relative
+  left: 40px
+}
+#photo-credit {
+  text-align: right;
+  display: inline-block;
+  max-width: 600px;
+  min-width: 600px;
 }
