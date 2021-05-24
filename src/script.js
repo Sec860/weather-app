@@ -29,14 +29,14 @@ function searchCity(event) {
 
 function formatTime(timestamp) {  
   let date = new Date(timestamp);
-  let hours = date.getHours();
-  if (hours < 10) { `0${hours}`}
-  let minutes = date.getMinutes();
-  if (minutes < 10) { `0${minutes}`}
+  let hour = date.getHours();
+  if (hour < 10) {hours = `0${hours}`}
+  let minute = date.getMinutes();
+  if (minute < 10) {minutes = `0${minutes}`}
   let weekday = weekdays[date.getDay()];
   let month = months[date.getMonth()];
   let day = date.getDate();
-  return `${weekday}, ${month} ${day} - ${hours}:${minutes}` 
+  return `${weekday}, ${month} ${day} - ${hour}:${minute}` 
 }
 
 function showWeather(response) {
